@@ -93,14 +93,14 @@ module j1(
       ram[{2'b00,_st0[31:2]}] <= st1[31:0];
   end
   
-/* reg aaa;
+ reg aaa;
 always @*
 begin
 	if(insn == 32'h60000023)
 		aaa=1;
 	if(insn == 32'h60000c00)
 		aaa=1;
-end  */
+end  
 
   // Compute the new value of T.
   always @*
@@ -121,7 +121,7 @@ end  */
         4'b1001: _st0 = st1 >> st0;
         4'b1010: _st0 = st0 - 1;
         4'b1011: _st0 = rst0;
-        4'b1100: _st0 = |st0[31:28] ? io_din : mem_din;
+        4'b1100: _st0 = |st0[31:15] ? io_din : mem_din;
         4'b1101: _st0 = st1 << st0;
         4'b1110: _st0 = {19'b0,rsp, 3'b000, dsp};
         4'b1111: _st0 = {32{(st1 < st0)}};

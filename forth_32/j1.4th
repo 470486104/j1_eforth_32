@@ -384,7 +384,7 @@ t: 1+ 1 literal + t;
 t: sp@ dsp ff literal and t;
 t: execute ( ca -- ) >r t;
 t: bye ( -- ) f0000002 literal ! t;
-\ c@ c! 需要乘法 故写在472行重写
+\ c@ c! 在468行重写
 \ t: c@ ( b -- c )   dup @ swap 1 literal and if    8 literal rshift else ff literal and then exit t;
 \ t: c! ( c b -- )   swap ff literal and dup 8 literal lshift or swap    tuck dup @ swap 1 literal and 0 literal = ff literal xor    >r over xor r> and xor swap ! t;
 t: um+ ( w1 w2 -- w1+w2 1or0 )  \ 1or0 表示w1和w2中是否有负数 有为1 反之0
