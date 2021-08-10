@@ -109,7 +109,7 @@ variable tlast \ tflash中最后一个词的指针
 variable tuser
 
 0002 constant =ver
-0002 constant =ext
+0003 constant =ext
 0040 constant =comp \ 与某词长度or运算可使该词为只编译词不搜索，即词长度的次高位置为1
 0080 constant =imed \ 与某词长度or运算可使该词为立即词，即词长度的最高位置为1
 7f7f7f1f constant =mask
@@ -959,7 +959,7 @@ t: hi ( -- )
 t: cold ( -- )
    =uzero literal =up literal =udiff literal cmove
    preset forth-wordlist dup context ! dup current 2! overt
-   8000 literal cell+ dup cell- @ $eval
+   4000 literal cell+ dup cell- @ $eval
    'boot @execute
    quit
    cold t;
